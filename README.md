@@ -2,7 +2,8 @@
 
 A Python pipeline replicating the **CEPII/BACI methodology** (Gaulier & Zignago, 2010) for reconciling bilateral trade data from UN COMTRADE mirror flows.
 
-> **Status:** Version 1 — initial implementation. This is an active work-in-progress.
+> **Status:** Version 1 — initial implementation. This is an active work-in-progress, I will try to update as I go
+> I am working on this as part of my work under the Ecnomics Program and Scholl Chair in International Business at CSIS
 
 ---
 
