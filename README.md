@@ -1,16 +1,16 @@
-# Trade Data Reconciliation Pipeline â Fragmentation Replication v1
+# Trade Data Reconciliation Pipeline — Fragmentation Replication v1
 
 A Python pipeline replicating the **CEPII/BACI methodology** (Gaulier & Zignago, 2010) for reconciling bilateral trade data from UN COMTRADE mirror flows.
 
-> **Status:** Version 1 â initial implementation. This is an active work-in-progress.
+> **Status:** Version 1 — initial implementation. This is an active work-in-progress.
 
 ---
 
 ## Background
 
-When countries report international trade to the United Nations, the **same shipment is recorded twice**: once by the exporting country (at FOB â Free on Board) and once by the importing country (at CIF â Cost, Insurance, Freight). These mirror reports rarely agree due to differences in valuation, timing, classification, and reporting quality.
+When countries report international trade to the United Nations, the **same shipment is recorded twice**: once by the exporting country (at FOB — Free on Board) and once by the importing country (at CIF — Cost, Insurance, Freight). These mirror reports rarely agree due to differences in valuation, timing, classification, and reporting quality.
 
-The **BACI dataset**, produced by CEPII (Centre d'Ãtudes Prospectives et d'Informations Internationales), addresses this by applying a gravity-model-based methodology to:
+The **BACI dataset**, produced by CEPII (Centre d'Études Prospectives et d'Informations Internationales), addresses this by applying a gravity-model-based methodology to:
 
 1. **Estimate CIF/FOB ratios** using bilateral distance, contiguity, landlocked status, and product-level unit values
 2. **Assess reporter reliability** through variance decomposition of mirror flow discrepancies
@@ -22,17 +22,17 @@ This project replicates that methodology for the **CSIS fragmentation research p
 
 The pipeline processes raw UN COMTRADE bilateral trade data and produces reconciled trade values through two complementary approaches:
 
-### Prong 1 â Tiered CIF Adjustment (Interim)
+### Prong 1 — Tiered CIF Adjustment (Interim)
 
-A pragmatic baseline method that assigns fixed CIF rates based on geographic tiers (contiguous, same-continent, cross-continent). **This is not from the BACI paper** â it serves as a quick benchmark while the gravity model is validated.
+A pragmatic baseline method that assigns fixed CIF rates based on geographic tiers (contiguous, same-continent, cross-continent). **This is not from the BACI paper** — it serves as a quick benchmark while the gravity model is validated.
 
-### Prong 2 â Gravity Regression (BACI Replication)
+### Prong 2 — Gravity Regression (BACI Replication)
 
 The core methodology, implementing three key equations from Gaulier & Zignago (2010):
 
-- **Eq (1) â CIF rate estimation:** `ln(CIF_rate) = Î± + Î²Â·ln(dist) + ÏÂ·ln(dist)Â² + Î´Â·contig + ÏÂ·landlocked_i + Î³Â·landlocked_j + Î·Â·ln(UV) + Îµ`
-- **Eq (3) â Reconciliation weights:** `w = g(ÏÂ²_j) / [g(ÏÂ²_i) + g(ÏÂ²_j)]` where `g(ÏÂ²) = exp(ÏÂ²)(exp(ÏÂ²) - 1)`
-- **Eq (4-5) â Reliability decomposition:** Variance components estimated from log-ratios of mirror flows
+- **Eq (1) — CIF rate estimation:** `ln(CIF_rate) = α + β·ln(dist) + χ·ln(dist)² + δ·contig + φ·landlocked_i + γ·landlocked_j + η·ln(UV) + ε`
+- **Eq (3) — Reconciliation weights:** `w = g(σ²_j) / [g(σ²_i) + g(σ²_j)]` where `g(σ²) = exp(σ²)(exp(σ²) - 1)`
+- **Eq (4-5) — Reliability decomposition:** Variance components estimated from log-ratios of mirror flows
 
 ## Pipeline Structure
 
@@ -51,12 +51,12 @@ The notebook contains 25 cells (8 markdown + 17 code) organized as:
 
 ## Tech Stack
 
-- **Google Colab** â runtime environment
-- **DuckDB 0.10.3** â fast in-notebook analytical SQL engine
-- **pandas / numpy** â data manipulation
-- **statsmodels** â OLS gravity regression with robust standard errors
-- **pycountry** â ISO country code mapping
-- **CEPII GeoDist** â bilateral distance and geographic variables
+- **Google Colab** — runtime environment
+- **DuckDB 0.10.3** — fast in-notebook analytical SQL engine
+- **pandas / numpy** — data manipulation
+- **statsmodels** — OLS gravity regression with robust standard errors
+- **pycountry** — ISO country code mapping
+- **CEPII GeoDist** — bilateral distance and geographic variables
 
 ## Data Requirements
 
@@ -72,10 +72,10 @@ All files should be placed in the Google Drive folder: `/MyDrive/Colab Notebooks
 
 The pipeline produces the following CSV files in the `outputs/` subfolder:
 
-- `prong1_tiered_reconciled_2023.csv` â Prong 1 reconciled values
-- `prong2_gravity_reconciled_2023.csv` â Prong 2 reconciled values
-- `prong_comparison_2023.csv` â Flow-level comparison of both prongs
-- `gravity_coefficients_2023.csv` â Estimated gravity regression coefficients
+- `prong1_tiered_reconciled_2023.csv` — Prong 1 reconciled values
+- `prong2_gravity_reconciled_2023.csv` — Prong 2 reconciled values
+- `prong_comparison_2023.csv` — Flow-level comparison of both prongs
+- `gravity_coefficients_2023.csv` — Estimated gravity regression coefficients
 
 ## Reference
 
@@ -85,11 +85,11 @@ Gaulier, G. and Zignago, S. (2010), "BACI: International Trade Database at the P
 
 | Version | Date | Description |
 |---------|------|-------------|
-| v1.0 | April 2026 | Initial implementation â single year (2023), Prong 1 + Prong 2 |
+| v1.0 | April 2026 | Initial implementation — single year (2023), Prong 1 + Prong 2 |
 
 ## Planned Improvements (v2+)
 
-- [ ] Extend to multi-year panel (2015â2024) with time fixed effects
+- [ ] Extend to multi-year panel (2015–2024) with time fixed effects
 - [ ] Add tariff and FTA variables to gravity specification
 - [ ] Implement HS6-level disaggregation
 - [ ] Automate COLUMN_MAP detection from TDM headers
@@ -98,7 +98,7 @@ Gaulier, G. and Zignago, S. (2010), "BACI: International Trade Database at the P
 
 ## Author
 
-**Nina Pham** â CSIS
+**Nina Pham** — CSIS
 
 ## License
 
