@@ -3,7 +3,7 @@
 A Python pipeline replicating the **CEPII/BACI methodology** (Gaulier & Zignago, 2010) for reconciling bilateral trade data from UN COMTRADE mirror flows.
 
 > **Status:** Version 1 — initial implementation. This is an active work-in-progress, I will try to update as I go
-> I am working on this as part of my work under the Ecnomics Program and Scholl Chair in International Business at CSIS
+> I am working on this as part of my internship work under the Economics Program and Scholl Chair in International Business at CSIS. I began working on this project in February 2026, intially it was done on R but in March it was decided that I should move things over to Python (on CoLabs).
 
 ---
 
@@ -52,12 +52,12 @@ The notebook contains 25 cells (8 markdown + 17 code) organized as:
 
 ## Tech Stack
 
-- **Google Colab** — runtime environment
-- **DuckDB 0.10.3** — fast in-notebook analytical SQL engine
-- **pandas / numpy** — data manipulation
-- **statsmodels** — OLS gravity regression with robust standard errors
-- **pycountry** — ISO country code mapping
-- **CEPII GeoDist** — bilateral distance and geographic variables
+- **Google Colab**: runtime environment
+- **DuckDB 0.10.3**: fast in-notebook analytical SQL engine
+- **pandas / numpy**: data manipulation
+- **statsmodels**: OLS gravity regression with robust standard errors
+- **pycountry**: ISO country code mapping
+- **CEPII GeoDist**: bilateral distance and geographic variables
 
 ## Data Requirements
 
