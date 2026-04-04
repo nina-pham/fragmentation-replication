@@ -61,13 +61,24 @@ The notebook contains 25 cells (8 markdown + 17 code) organized as:
 
 ## Data Requirements
 
-| File | Source | Description |
-|------|--------|-------------|
-| `_TDM_HS4_2015_2024.zip` | UN COMTRADE TDM | Bilateral trade data at HS4 level |
-| `dist_cepii.csv` | [CEPII GeoDist](http://www.cepii.fr/CEPII/en/bdd_modele/bdd_modele_item.asp?id=6) | Bilateral distances, contiguity, colonial ties |
-| `geo_cepii.csv` | CEPII GeoDist | Country-level geographic metadata |
+| File | Source | Description | Size |
+|------|--------|-------------|------|
+| `_TDM_HS4_2015_2024.zip` | UN COMTRADE TDM | Bilateral trade data at HS4 level (compressed) | 1.53 GB |
+| `TDM_report.csv` | Pipeline output from above zip | Extracted trade report used by the notebook | 9.17 GB |
+| `dist_cepii.csv` | [CEPII GeoDist](http://www.cepii.fr/CEPII/en/bdd_modele/bdd_modele_item.asp?id=6) | Bilateral distances, contiguity, colonial ties | ~1 MB |
+| `geo_cepii.csv` | CEPII GeoDist | Country-level geographic metadata | ~50 KB |
 
-All files should be placed in the Google Drive folder: `/MyDrive/Colab Notebooks/CSIS/`
+### Data Access
+
+The TDM trade data files (`_TDM_HS4_2015_2024.zip` and `TDM_report.csv`) are **not included in this repository** due to their size (1.5 GB and 9.2 GB respectively, well above GitHub's 100 MB file limit). They are stored in the shared Google Drive folder:
+
+```
+Google Drive > My Drive > Colab Notebooks > CSIS
+```
+
+To run the notebook, ensure all data files are placed in: `/MyDrive/Colab Notebooks/CSIS/`
+
+The CEPII GeoDist files are downloaded automatically by the notebook at runtime from the CEPII website.
 
 ## Outputs
 
