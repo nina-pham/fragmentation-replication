@@ -9,7 +9,7 @@ A Python pipeline replicating the **CEPII/BACI methodology** (Gaulier & Zignago,
 
 ## Background
 
-When countries report international trade to the United Nations, the **same shipment is recorded twice**: once by the exporting country (at FOB — Free on Board) and once by the importing country (at CIF — Cost, Insurance, Freight). These mirror reports rarely agree due to differences in valuation, timing, classification, and reporting quality.
+When countries report international trade to the United Nations, the **same shipment is recorded twice**: once by the exporting country (at FOB, Free on Board) and once by the importing country (at CIF: Cost, Insurance, Freight). These mirror reports rarely agree due to differences in valuation, timing, classification, and reporting quality.
 
 The **BACI dataset**, produced by CEPII (Centre d'Études Prospectives et d'Informations Internationales), addresses this by applying a gravity-model-based methodology to:
 
